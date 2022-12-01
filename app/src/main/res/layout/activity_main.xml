@@ -168,10 +168,11 @@
             android:hint="Coloque el ID"
             android:id="@+id/idCampo"
             android:layout_marginTop="10dp"/>
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/resultadoConsulta"
+            android:text="SIN CONSULTAS"
             android:layout_marginTop="10dp"/>
         <TextView
             android:layout_width="match_parent"
