@@ -9,6 +9,18 @@
         android:title="ELIMINAR FIRE"
         />
     <item
+        android:id="@+id/opcionMenu4"
+        android:title="CONSULTA POR CARRERA1"
+        />
+    <item
+        android:id="@+id/opcionMenu5"
+        android:title="CONSULTA POR CARRERA2"
+        />
+    <item
+        android:id="@+id/opcionMenu6"
+        android:title="CONSULTA POR ESCUELA"
+        />
+    <item
         android:id="@+id/opcionMenu3"
         android:title="SALIR"
         />

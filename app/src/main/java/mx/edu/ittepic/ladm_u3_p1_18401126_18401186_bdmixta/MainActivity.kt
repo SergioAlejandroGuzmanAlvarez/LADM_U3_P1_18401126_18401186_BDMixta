@@ -54,6 +54,26 @@ class MainActivity : AppCompatActivity() {
                         alert(it.message!!)
                     }
             }
+            R.id.opcionMenu4->{
+                FirebaseFirestore.getInstance()
+                    .collection("ALUMNOS")
+                    .whereEqualTo("CARRERA1","CARRERA1")
+                    .get()
+                    .addOnSuccessListener {
+                        var resultado = ArrayList<String>()
+                        for(documento in it!!){
+                            var cad = documento.getString("nombre")
+                            resultado.add(cad!!)
+                        }//for
+                        alert(resultado.toString())
+                    }
+            }
+            R.id.opcionMenu5->{
+
+            }
+            R.id.opcionMenu6->{
+
+            }
             R.id.opcionMenu3->{
                 finish()
             }
