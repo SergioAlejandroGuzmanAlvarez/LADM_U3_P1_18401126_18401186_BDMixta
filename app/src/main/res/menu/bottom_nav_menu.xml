@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/opcionMenu1"
+        android:title="ACTUALIZAR"
+        />
+    <item
+        android:id="@+id/opcionMenu2"
+        android:title="ELIMINAR"
+        />
+    <item
+        android:id="@+id/opcionMenu3"
+        android:title="SALIR"
+        />
+</menu>
