@@ -125,10 +125,11 @@ class MainActivity : AppCompatActivity() {
         escuela.setText("")
         telefono.setText("")
         carrera1.setText("")
-        carrera1.setText("")
+        carrera2.setText("")
         correo.setText("")
         fecha.setText("")
         hora.setText("")
+        idCampo.setText("")
     }
     fun consultaFirebase(){
         try{
