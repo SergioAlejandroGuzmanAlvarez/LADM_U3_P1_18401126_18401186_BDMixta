@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.database.sqlite.SQLiteException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -18,6 +19,11 @@ class MainActivity : AppCompatActivity() {
     var listaID = ArrayList<String>()
     var baseRemota = FirebaseFirestore.getInstance()
     var idContador=0
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.bottom_nav_menu,menu)
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.opcionMenu1->{
@@ -69,10 +75,32 @@ class MainActivity : AppCompatActivity() {
                     }
             }
             R.id.opcionMenu5->{
-
+                FirebaseFirestore.getInstance()
+                    .collection("ALUMNOS")
+                    .whereEqualTo("CARRERA2","CARRERA2")
+                    .get()
+                    .addOnSuccessListener {
+                        var resultado = ArrayList<String>()
+                        for(documento in it!!){
+                            var cad = documento.getString("nombre")
+                            resultado.add(cad!!)
+                        }//for
+                        alert(resultado.toString())
+                    }
             }
             R.id.opcionMenu6->{
-
+                FirebaseFirestore.getInstance()
+                    .collection("ALUMNOS")
+                    .whereEqualTo("ESCUELA_PROCEDENCIA","ESCUELA_PROCEDENCIA")
+                    .get()
+                    .addOnSuccessListener {
+                        var resultado = ArrayList<String>()
+                        for(documento in it!!){
+                            var cad = documento.getString("nombre")
+                            resultado.add(cad!!)
+                        }//for
+                        alert(resultado.toString())
+                    }
             }
             R.id.opcionMenu3->{
                 finish()
