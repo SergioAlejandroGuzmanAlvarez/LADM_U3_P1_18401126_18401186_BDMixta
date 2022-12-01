@@ -156,7 +156,23 @@
             android:id="@+id/btn_insertar"
             android:text="Insertar"
             android:layout_marginTop="10dp"/>
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_consultar"
+            android:text="Consultar"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Coloque el ID"
+            android:id="@+id/idCampo"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/resultadoConsulta"
+            android:layout_marginTop="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
