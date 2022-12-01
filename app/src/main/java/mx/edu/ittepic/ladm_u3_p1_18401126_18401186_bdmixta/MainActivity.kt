@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.database.sqlite.SQLiteException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -17,6 +18,49 @@ class MainActivity : AppCompatActivity() {
     var listaID = ArrayList<String>()
     var baseRemota = FirebaseFirestore.getInstance()
     var idContador=0
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.opcionMenu1->{
+                FirebaseFirestore.getInstance()
+                    .collection("ALUMNOS")
+                    .document(idCampo.text.toString())
+                    .update("NOMBRE",nombre.text.toString(),
+                        "ESCUELA_PROCEDENCIA",escuela.text.toString(),
+                        "TELEFONO",telefono.text.toString(),
+                        "CARRERA1",carrera1.text.toString(),
+                        "CARRERA2",carrera2.text.toString(),
+                        "CORREO", correo.text.toString(),
+                        "FECHA", fecha.text.toString(),
+                        "HORA", hora.text.toString()
+                    )
+                    .addOnSuccessListener {
+                        toas("SE ACTUALIZO CON ÉXITO.")
+                        limpiarCampos()
+                    }
+                    .addOnFailureListener {
+                        alert(it.message!!)
+                    }
+            }
+            R.id.opcionMenu2->{
+                FirebaseFirestore.getInstance()
+                    .collection("ALUMNOS")
+                    .document(idCampo.text.toString())
+                    .delete()
+                    .addOnSuccessListener {
+                        toas("SE BORRO EN LA BASE DATOS!!")
+                        eliminar(idCampo.text.toString())
+                    }
+                    .addOnFailureListener {
+                        alert(it.message!!)
+                    }
+            }
+            R.id.opcionMenu3->{
+                finish()
+            }
+        }
+        return true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -159,5 +203,15 @@ class MainActivity : AppCompatActivity() {
         }catch(err:SQLiteException){
             mensaje(err.message!!)
         }
+    }
+    fun toas(m:String){
+        Toast.makeText(this,m,Toast.LENGTH_LONG).show()
+    }
+
+    fun alert(m:String){
+        AlertDialog.Builder(this).setTitle("ATENCION")
+            .setMessage(m)
+            .setPositiveButton("OK"){d,i->}
+            .show()
     }
 }
